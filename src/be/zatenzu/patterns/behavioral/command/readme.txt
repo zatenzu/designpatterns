@@ -1,0 +1,1 @@
+This exemple is done to replace un switch who has actions in case statements.
