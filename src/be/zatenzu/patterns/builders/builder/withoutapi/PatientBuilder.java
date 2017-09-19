@@ -6,12 +6,8 @@ public interface PatientBuilder {
 
     Patient build();
 
-    PatientBuilder setFirstname(String firstname);
-
-    PatientBuilder setLastname(String lastname);
-
-    PatientBuilder setBirthDate(LocalDate birthDate);
-
-    PatientBuilder setAddress(String address);
-
+    PatientBuilder firstname(String firstname);
+    PatientBuilder lastname(String lastname);
+    PatientBuilder birthDate(LocalDate birthDate);
+    PatientBuilder address(String address);
 }

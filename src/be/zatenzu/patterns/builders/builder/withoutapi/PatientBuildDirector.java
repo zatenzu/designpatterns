@@ -11,10 +11,10 @@ public class PatientBuildDirector {
     }
 
     public Patient constructPatient(){
-        return this.patientBuilder.setAddress("address").
-                setBirthDate(LocalDate.now()).
-                setFirstname("firstname").
-                setLastname("lastname").
+        return this.patientBuilder.address("address").
+                birthDate(LocalDate.now()).
+                firstname("firstname").
+                lastname("lastname").
                 build();
     }
 }
