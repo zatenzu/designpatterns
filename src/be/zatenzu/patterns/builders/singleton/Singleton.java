@@ -26,5 +26,7 @@ public final class Singleton {
         return new Properties();
     }
 
-
+    public Properties getConfig() {
+        return config;
+    }
 }

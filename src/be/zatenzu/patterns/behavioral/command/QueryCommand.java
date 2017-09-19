@@ -4,6 +4,6 @@ public class QueryCommand implements Command{
 
     @Override
     public void execute() {
-        //do query
+        System.out.println("Do query");
     }
 }

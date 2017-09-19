@@ -4,6 +4,6 @@ public class LoginCommand implements Command{
 
     @Override
     public void execute() {
-        //do login
+        System.out.println("Do login");
     }
 }

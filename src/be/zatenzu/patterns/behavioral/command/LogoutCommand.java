@@ -4,6 +4,6 @@ public class LogoutCommand implements Command{
 
     @Override
     public void execute() {
-        //do logout
+        System.out.println("Do logout");
     }
 }

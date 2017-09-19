@@ -6,28 +6,24 @@ import java.util.Map;
 //should be a singleton
 public class CommandFactory {
 
-    public static Map<Integer, Command> getCommandMap(){
-        Map<Integer, Command> integerCommandMap = new HashMap<>();
+    public static Map<Client.Action, Command> getCommandMap(){
+        Map<Client.Action, Command> integerCommandMap = new HashMap<>();
 
-        integerCommandMap.put(1, new LoginCommand());
-        integerCommandMap.put(2, new LogoutCommand());
-        integerCommandMap.put(3, new QueryCommand());
-
-        return integerCommandMap;
-    }
-
-    public static Map<Integer, Runnable> getCommandMap2(){
-        Map<Integer, Runnable> integerCommandMap = new HashMap<>();
-
-        integerCommandMap.put(1, CommandFactory::doLogin);
-        integerCommandMap.put(2, CommandFactory::doLogout);
-        integerCommandMap.put(3, CommandFactory::doQuery);
+        integerCommandMap.put(Client.Action.LOGIN, new LoginCommand());
+        integerCommandMap.put(Client.Action.LOGOUT, new LogoutCommand());
+        integerCommandMap.put(Client.Action.QUERY, new QueryCommand());
 
         return integerCommandMap;
     }
 
-    public static void doLogin(){}
-    public static void doLogout(){}
-    public static void doQuery(){}
+    public static Map<Client.Action, Runnable> getCommandMap2(){
+        Map<Client.Action, Runnable> integerCommandMap = new HashMap<>();
+
+        integerCommandMap.put(Client.Action.LOGIN, LoginCommand::new);
+        integerCommandMap.put(Client.Action.LOGOUT, new LogoutCommand()::execute);
+        integerCommandMap.put(Client.Action.QUERY, QueryCommand::new);
+
+        return integerCommandMap;
+    }
 
 }

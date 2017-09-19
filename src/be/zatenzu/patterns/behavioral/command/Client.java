@@ -8,7 +8,7 @@ public class Client {
     enum Action{LOGIN, LOGOUT, QUERY}
 
     public static void main(String[] args) {
-        Action action = getAction(Integer.valueOf(args[0]));
+        Action action = getAction(1);
 
         switch(action) {
             case LOGIN:
@@ -23,13 +23,13 @@ public class Client {
         }
         //======== replaced by
 
-        Map<Integer, Command> commandMap = CommandFactory.getCommandMap();
-        Command command = commandMap.get(getAction(Integer.valueOf(args[0])));
+        Map<Action, Command> commandMap = CommandFactory.getCommandMap();
+        Command command = commandMap.get(getAction(1));
         command.execute();
 
         //======== Java8
-        Map<Integer, Runnable> commandMap2 = CommandFactory.getCommandMap2();
-        Runnable c = commandMap2.get(getAction(Integer.valueOf(args[0])));
+        Map<Action, Runnable> commandMap2 = CommandFactory.getCommandMap2();
+        Runnable c = commandMap2.get(getAction(1));
         c.run();
     }
 
